@@ -11,7 +11,7 @@ import {
   Typography,
 } from '@mui/material';
 import { useRef, useState } from 'react';
-import { redirect, useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import { getToken } from '../services/AuthService';
 import { getCarById, updateCar } from '../services/CarService';
 
@@ -23,6 +23,7 @@ export async function loader({ params }) {
 
 export default function EditCar() {
   const { car: carData } = useLoaderData();
+  const navigate = useNavigate();
   const formRef = useRef();
   const [car, setCar] = useState(carData);
   const [carUpdates, setCarUpdates] = useState({});
@@ -44,7 +45,7 @@ export default function EditCar() {
 
     const carId = carData.id;
     await updateCar(carId, formData, token);
-    return redirect(`/cars`);
+    return navigate(`/cars`, { replace: true });
   }
 
   function handleCarChange(event) {
