@@ -10,7 +10,6 @@ import SearchIcon from '@mui/icons-material/Search';
 
 import {
   Avatar,
-  Breadcrumbs,
   Button,
   InputBase,
   Link,
@@ -341,19 +340,6 @@ export default function Root() {
       {/* Content */}
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
         <DrawerHeader />
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link underline="hover" color="inherit" href="/">
-            MUI
-          </Link>
-          <Link
-            underline="hover"
-            color="inherit"
-            href="/material-ui/getting-started/installation/"
-          >
-            Core
-          </Link>
-          <Typography color="text.primary">Breadcrumbs</Typography>
-        </Breadcrumbs>
         {/* Content from Route Root Children */}
         <Outlet />
       </Box>
